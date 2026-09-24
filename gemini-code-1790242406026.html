@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Расписание — Telegram Web Chat</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div class="chat-container">
+    <!-- Шапка чата -->
+    <header class="chat-header">
+      <div class="bot-info">
+        <div class="avatar">🤖</div>
+        <div>
+          <div class="bot-name">Schedule Bot</div>
+          <div class="bot-status">online</div>
+        </div>
+      </div>
+      
+      <!-- Селект для выбора группы из Supabase -->
+      <div class="group-select-wrapper">
+        <select id="groupSelect">
+          <option value="">Загрузка групп...</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Окно сообщений -->
+    <main class="chat-messages" id="chatMessages">
+      <div class="message bot">
+        <div class="bubble">
+          Привет! Выберите вашу группу сверху, а затем используйте кнопки быстрого доступа или отправьте команду <b>/today</b> или <b>/now</b>.
+        </div>
+        <span class="time">00:00</span>
+      </div>
+    </main>
+
+    <!-- Быстрые кнопки команд -->
+    <div class="quick-actions">
+      <button class="action-btn" onclick="sendCommand('/today')">📅 На сегодня (/today)</button>
+      <button class="action-btn" onclick="sendCommand('/now')">⚡ Сейчас (/now)</button>
+    </div>
+
+    <!-- Поле ввода -->
+    <footer class="chat-input-area">
+      <input type="text" id="userInput" placeholder="Напишите команду (/today, /now)..." autocomplete="off" />
+      <button id="sendBtn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+        </svg>
+      </button>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
