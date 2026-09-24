@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расписание Занятий</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="chat-card">
+    <!-- Шапка с выбором группы из Supabase -->
+    <header class="chat-header">
+      <div class="title">🤖 Расписание</div>
+      <select id="groupSelect" class="group-select">
+        <option value="">Выберите группу...</option>
+      </select>
+    </header>
+
+    <!-- Окно истории сообщений -->
+    <main id="chatMessages" class="chat-messages">
+      <div class="message bot">
+        Выберите группу из списка сверху и нажмите <b>/today</b> или <b>/now</b>.
+      </div>
+    </main>
+
+    <!-- Быстрые кнопки -->
+    <div class="quick-buttons">
+      <button class="btn" onclick="sendCommand('/today')">📅 /today</button>
+      <button class="btn" onclick="sendCommand('/now')">⚡ /now</button>
+    </div>
+
+    <!-- Форма ввода -->
+    <footer class="chat-input-container">
+      <input type="text" id="userInput" placeholder="Введите команду..." autocomplete="off">
+      <button id="sendBtn" class="send-btn">Отправить</button>
+    </footer>
+  </div>
+
+</body>
+</html>
