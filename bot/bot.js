@@ -63,9 +63,8 @@ bot.on('callback_query', async (query) => {
         let messageText = `📅 Расписание:\n\n`;
         schedule.forEach(row => {
           messageText += `🔹 День: ${row.day_of_week} (Пара №${row.lesson_number})\n`;
-          messageText += `📚 Предмет: ${row.subject}\n`;
-          messageText += `👨🏫 Преподаватель: ${row.teacher}\n`;
-          messageText += `🚪 Аудитория: ${row.classroom}\n\n`;
+          messageText += `📚 Предмет: ${row.subject_name}\n`;
+          messageText += `🕐 Время: ${row.time_start} — ${row.time_end}\n\n`;
         });
 
         await bot.sendMessage(chatId, messageText);
